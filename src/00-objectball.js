@@ -119,4 +119,22 @@ function gameObject() {
     return game;
 }
 
-console.log(gameObject());
+//console.log(gameObject);
+function teamSelector(playerName){
+    const team = Object.entries(gameObject());
+    for (item of team) {
+        if(item[1].players[playerName] === playerName) {
+            return if(item[0];
+        }
+    }
+}
+//team = [[home,obj], [away,obj]]
+
+
+function numPointsScored(playerName){
+    const  team = Object.entries(gameObject());
+    return `${playerName} scored ${team[teamSelector(playerName)][1].players[playerName].points} points`;
+}
+
+
+console.log(numPointsScored('Alan Anderson'));
