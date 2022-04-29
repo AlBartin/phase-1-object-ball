@@ -119,22 +119,24 @@ function gameObject() {
     return game;
 }
 
-//console.log(gameObject);
-function teamSelector(playerName){
-    const team = Object.entries(gameObject());
-    for (item of team) {
-        if(item[1].players[playerName] === playerName) {
-            return if(item[0];
+
+function findTeam(team_name){
+    const theGame = gameObject();
+    for (team in theGame) {
+        if (theGame[team].teamName === team_name) return theGame[team];
+    }
+}
+
+function findPlayer(playerName){
+    const theGame = gameObject();
+    for (team in theGame){
+        const wholeTeam = theGame[team].players;
+        for (player in wholeTeam) {
+            if (player === playerName ) return wholeTeam[player];
         }
     }
 }
-//team = [[home,obj], [away,obj]]
 
+const numPointsScored = playerName => 
+findPlayer(playerName) ? `${playerName} scored ${findPlayer(playerName).points} points`: 'Player not found';   
 
-function numPointsScored(playerName){
-    const  team = Object.entries(gameObject());
-    return `${playerName} scored ${team[teamSelector(playerName)][1].players[playerName].points} points`;
-}
-
-
-console.log(numPointsScored('Alan Anderson'));
